@@ -61,7 +61,7 @@ const T = {
     territoryTag: "Dintorni",
     territoryTitle: "Scopri la Maremma Toscana",
     territoryDesc: "Un territorio ricco di perle da esplorare: dal mare più incontaminato dell'Argentario, al fascino storico ed esclusivo dei piccoli borghi delle Città del Tufo, per chi ama l'archeologia e la Storia.\n\nIl territorio offre esperienze diverse: giornate in spiaggia, passeggiate nella natura, visite culturali, borghi medievali, cantine, ristoranti tipici e percorsi dedicati a chi ama la storia e l'archeologia.",
-    territoryTabs: ["Dove mangiare", "Borghi e cultura", "Natura e mare"],
+    territoryTabs: ["Dove mangiare", "Borghi e cultura", "Attività", "Natura e mare"],
     territoryEatIntro: "La Maremma è una terra di sapori autentici: cucina semplice, prodotti locali, carne maremmana, olio, vino e piatti della tradizione. Ecco i nostri consigli personali.",
     territoryNote: "",
     contactTag: "Supporto",
@@ -96,7 +96,7 @@ const T = {
     territoryTag: "Surroundings",
     territoryTitle: "Discover Tuscan Maremma",
     territoryDesc: "A land full of hidden gems waiting to be explored: from the pristine sea of Argentario, to the historic charm of the small villages of the Tufo Cities, for lovers of archaeology and history.\n\nThe area offers different experiences: beach days, nature walks, cultural visits, medieval villages, wineries, traditional restaurants and paths for those who love history and archaeology.",
-    territoryTabs: ["Where to eat", "Villages & culture", "Nature & sea"],
+    territoryTabs: ["Where to eat", "Villages & culture", "Activities", "Nature & sea"],
     territoryEatIntro: "Maremma is a land of authentic flavors: simple cooking, local produce, Maremman beef, olive oil, wine and traditional dishes. Here are our personal recommendations.",
     territoryNote: "",
     contactTag: "Support",
@@ -164,13 +164,12 @@ const RULES = {
   ],
 };
 
-// ⚠️ TERRITORIO: contenuti placeholder da verificare/personalizzare con Valerio
 const TERRITORY = {
   it: [
     [ // Dove mangiare
-      { name: "Ristorante consigliato — [Nome ristorante]", desc: "Ideale per una cena curata, con cucina locale e atmosfera accogliente." },
-      { name: "Trattoria tipica — [Nome trattoria]", desc: "Perfetta per chi cerca piatti maremmani autentici in un ambiente semplice e familiare." },
-      { name: "Cucina ricercata — [Nome ristorante]", desc: "Consigliato per chi vuole assaporare prodotti del territorio e ricette tradizionali rivisitate." },
+      { name: "Il Tagliapasta", desc: "Il nostro preferito. Pasta fatta in casa, tortelli maremmani e pappardelle al cinghiale nel cuore di Grosseto. Cucina semplice, autentica, ottima qualità-prezzo. Prenotare consigliato." },
+      { name: "La Parolaccia", desc: "Dal 1918, quattro generazioni di cucina maremmana verace a Roselle — a pochi minuti dalla Villa. Pasta fatta in casa, ambiente familiare e una delle trattorie storiche della zona." },
+      { name: "La Terra di Nello", desc: "Osteria rurale a Castiglione della Pescaia con un'anima tutta maremmana. Carne a km zero, Chianina, Fiorentina al fuoco e una carta vini con oltre 250 etichette. Per serate speciali." },
     ],
     [ // Borghi e cultura
       { name: "Pitigliano", desc: "Il borgo scolpito nel tufo, sospeso su una rupe — soprannominato 'la piccola Gerusalemme' per la sua storia ebraica. (~1h)" },
@@ -179,17 +178,29 @@ const TERRITORY = {
       { name: "Montemassi", desc: "Il castello dei Pannocchieschi e un panorama che spazia fino al mare. (~30 min)" },
       { name: "Siena", desc: "Piazza del Campo e l'eleganza gotica. A circa 1 ora di auto." },
       { name: "Area Archeologica di Roselle", desc: "Antica città etrusco-romana a pochi minuti dalla villa." },
+      { name: "Pienza", desc: "La città ideale del Rinascimento, capitale del Pecorino Toscano DOP. Patrimonio UNESCO nel cuore della Val d'Orcia. (~1h 30 min)" },
+      { name: "Montalcino", desc: "Borgo medievale arroccato tra i vigneti, patria del Brunello: uno dei grandi rossi d'Italia. La Fortezza domina il panorama. (~1h)" },
+    ],
+    [ // Attività
+      { name: "Terme di Saturnia", desc: "Le cascate termali naturali di Saturnia sono tra i luoghi più iconici della Maremma. Acqua sulfurea a 37°C, vasche naturali accessibili gratuitamente h24. Un'esperienza da non perdere. (~45 min)" },
+      { name: "Cantina Le Mortelle — Antinori", desc: "La tenuta Le Mortelle di Antinori nell'entroterra di Castiglione della Pescaia. Degustazioni tra macchia mediterranea e vigneti affacciati sul mare. (~40 min)" },
+      { name: "Giardino dei Tarocchi", desc: "Il giardino scultoreo di Niki de Saint Phalle: 22 sculture monumentali ispirate ai Tarocchi, rivestite di mosaici e specchi colorati. Meta gettonatissima — prenotare in anticipo. (~45 min)" },
+      { name: "Acqua Village", desc: "Il parco acquatico di Cecina: scivoli, piscine e attrazioni per tutte le età. La scelta ideale per le famiglie con bambini. (~1h)" },
     ],
     [ // Natura e mare
-      { name: "Parco della Maremma", desc: "Sentieri, natura e fauna selvatica." },
-      { name: "Castiglione della Pescaia", desc: "Mare e borgo sul promontorio." },
+      { name: "Parco della Maremma", desc: "Sentieri, natura e fauna selvatica in una delle aree protette più belle d'Italia." },
+      { name: "Cala Violina", desc: "Una delle spiagge più belle d'Italia: sabbia bianchissima e acqua turchese nel Parco delle Colline Metallifere. Accessibile a piedi (~15 min dal parcheggio). (~55 min)" },
+      { name: "La Feniglia", desc: "Pineta protetta e spiaggia di sabbia bianca tra la laguna di Orbetello e il mare aperto. Si percorre in bici o a piedi tra i pini. (~55 min)" },
+      { name: "Castiglione della Pescaia", desc: "Borgo marinaro molto frequentato in estate, con una lunga spiaggia sabbiosa, locali e vita notturna nel centro storico. (~35 min)" },
+      { name: "Singita — Argentario", desc: "Il beach club d'atmosfera sull'Argentario: lettini, cocktail e una vista da sogno sul Tirreno. Una pausa chic in riva al mare. (~1h)" },
+      { name: "Porto Ercole e Porto Santo Stefano", desc: "I due borghi marinari dell'Argentario: barche, ristoranti di pesce e tramonti sul Tirreno. Porto Santo Stefano è la partenza per le isole del Giglio e di Giannutri. (~1h)" },
     ],
   ],
   en: [
     [
-      { name: "Recommended restaurant — [Name]", desc: "Ideal for a refined dinner, with local cuisine and a welcoming atmosphere." },
-      { name: "Traditional trattoria — [Name]", desc: "Perfect for those seeking authentic Maremman dishes in a simple, family setting." },
-      { name: "Refined cuisine — [Name]", desc: "Recommended for those who want to savor local produce and traditional recipes reinterpreted." },
+      { name: "Il Tagliapasta", desc: "Our favourite. Handmade pasta, Maremman tortelli and pappardelle with wild boar in the heart of Grosseto. Simple, authentic cuisine at great value. Booking recommended." },
+      { name: "La Parolaccia", desc: "Since 1918, four generations of genuine Maremman cooking in Roselle — minutes from the Villa. Handmade pasta, a family atmosphere and one of the area's historic trattorias." },
+      { name: "La Terra di Nello", desc: "A rural osteria in Castiglione della Pescaia with a true Maremman soul. Zero-kilometre beef, Chianina tartare, Florentine steak and a wine list of over 250 labels. For special evenings." },
     ],
     [
       { name: "Pitigliano", desc: "A village carved from tufa stone, perched on a cliff — known as 'little Jerusalem' for its Jewish heritage. (~1h)" },
@@ -198,10 +209,22 @@ const TERRITORY = {
       { name: "Montemassi", desc: "The Pannocchieschi castle and panoramic views stretching to the sea. (~30 min)" },
       { name: "Siena", desc: "Piazza del Campo and gothic elegance. About 1 hour drive." },
       { name: "Roselle Archaeological Area", desc: "Ancient Etruscan-Roman city, minutes from the villa." },
+      { name: "Pienza", desc: "The ideal Renaissance city and home of Pecorino Toscano DOP. A UNESCO World Heritage site in the heart of Val d'Orcia. (~1h 30 min)" },
+      { name: "Montalcino", desc: "A medieval hilltop village among vineyards, home of Brunello di Montalcino — one of Italy's great reds. The Fortezza commands sweeping views. (~1h)" },
     ],
     [
-      { name: "Maremma Park", desc: "Trails, nature and wildlife." },
-      { name: "Castiglione della Pescaia", desc: "Sea and village on the promontory." },
+      { name: "Terme di Saturnia", desc: "Saturnia's natural thermal waterfalls are among Maremma's most iconic spots. Sulphurous water at 37°C, free natural pools open 24/7. A must-do experience. (~45 min)" },
+      { name: "Le Mortelle — Antinori", desc: "Antinori's Le Mortelle estate inland from Castiglione della Pescaia. Wine tastings among Mediterranean scrub and vineyards overlooking the sea. (~40 min)" },
+      { name: "Giardino dei Tarocchi", desc: "Niki de Saint Phalle's sculpture garden: 22 monumental Tarot-inspired figures clad in mosaics and mirrors. Hugely popular — book ahead. (~45 min)" },
+      { name: "Acqua Village", desc: "Cecina's large water park: slides, pools and attractions for all ages. The perfect family day out. (~1h)" },
+    ],
+    [
+      { name: "Maremma Park", desc: "Trails, nature and wildlife in one of Italy's most beautiful protected areas." },
+      { name: "Cala Violina", desc: "One of Italy's most beautiful beaches: fine white sand and turquoise water in the Metalliferous Hills Park. Accessible on foot (~15 min from the car park). (~55 min)" },
+      { name: "La Feniglia", desc: "A protected pine forest and white sand beach between the Orbetello lagoon and the open sea. Best enjoyed on foot or by bike under the pines. (~55 min)" },
+      { name: "Castiglione della Pescaia", desc: "A much-loved seaside village with a long sandy beach, lively bars and nightlife in its medieval centre. (~35 min)" },
+      { name: "Singita — Argentario", desc: "The stylish beach club on Argentario: sun loungers, cocktails and dream views over the Tyrrhenian Sea. A chic stop for a day at the sea. (~1h)" },
+      { name: "Porto Ercole & Porto Santo Stefano", desc: "The two seafront villages of Argentario: fishing boats, seafood restaurants and sunsets over the sea. Porto Santo Stefano is the gateway to Giglio and Giannutri islands. (~1h)" },
     ],
   ],
 };
